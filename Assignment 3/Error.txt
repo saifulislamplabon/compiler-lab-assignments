@@ -1,0 +1,27 @@
+The way I implemented error is very naive and needs to write every specific error in grammar. Thats why I only implemented only few errors to demonstrate. I am looking for a better way to handle error. Then I will implement more errors.
+
+Here are list of few error handling rule I implemented.
+
+
+1. CLASS IDENT '(' NL  {
+		line+=2;
+		
+		$$.code=strdup("");
+
+		printf("%s\n","There must be { after class declaration." );
+	}
+
+2. WHILE '(' Expr  StmtBlock {
+		$<E.code>$=strdup("");
+		printf(") is missing at line %d\n",line-1);
+	} 
+	| WHILE  Expr ')' StmtBlock {
+		$<E.code>$=strdup("");
+		printf(" ( is missing at line %d\n",line-1);
+	}
+
+3. IdentAccess '=' Expr  NL {
+		//ERROR
+		$<E.code>$=strdup("");
+		printf(" ; is missing.");
+	} 

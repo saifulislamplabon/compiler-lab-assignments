@@ -1,0 +1,24 @@
+class Data{
+	int [] a;
+	void init(){
+		int i;
+		i=0;
+		a=new int[10];
+		while(i<10){
+			a[i]=i+1;
+		}
+	}
+	void rangeSum(int i,int j){
+		int sum;
+		sum=0;
+		while(i<=j){
+			sum=sum+a[i];
+		}
+	}
+}
+class Main{
+	void main(){
+		init();
+		rangeSum(3,4);
+	}
+}

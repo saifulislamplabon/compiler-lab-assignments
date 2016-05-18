@@ -1,0 +1,46 @@
+init:
+BeginFunc 1;
+i=0
+a=new int [10]
+label_3:
+if i<10 goto label_1
+t1=0
+goto label_2
+label_1:
+t1=1
+label_2:
+if t1==0 goto label_4
+t2=i+1
+a[i]=t2
+goto label_3
+label_4:
+_EndFunc
+rangeSum: 
+BeginFunc 10;
+Pop i
+Pop j
+sum=0
+label_7:
+if i<=j goto label_5
+t3=0
+goto label_6
+label_5:
+t3=1
+label_6:
+if t3==0 goto label_8
+t4=sum+a[i]
+sum=t4
+goto label_7
+label_8:
+_EndFunc
+main:
+BeginFunc 20;
+ Call init
+Push 3
+Push 4
+
+ Call rangeSum
+
+_EndFunc
+
+Successfully Parsed 27 Lines
